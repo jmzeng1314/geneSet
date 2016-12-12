@@ -4,15 +4,12 @@
 \alias{PCA_gene_multiple}
 \title{Do PCA for a single geneSet based on  bootstraps by genes}
 \usage{
-PCA_gene_multiple(prefix = "test", exprSet, group_list, geneSet_list,
-  n = 1000)
+PCA_gene_multiple(prefix = "test", exprSet, geneSet_list, n = 1000)
 }
 \arguments{
 \item{prefix}{The prefix for all of the output files.( we don't need it now actually,just placeholder)}
 
 \item{exprSet}{Matrix for microarray expression values,rownames must be genes, colnames must be samples}
-
-\item{group_list}{Factors for two groups that are tested for differential expression.}
 
 \item{geneSet_list}{A list which contains all of the vector for each geneSet.}
 
@@ -25,7 +22,7 @@ A numeric vector of P value for each PCA test about all of the geneSet .
 It'll random choose the same number of gene with the size of this geneSet to extract the expression matrix and then do PCA for this small expression matrix .
 }
 \examples{
-PCA_gene_multiple(exprSet=exprSet,group_list=group_list, geneSet_list=geneSet_list)
+PCA_gene_multiple(exprSet=exprSet, geneSet_list=geneSet_list)
 }
 \keyword{PCA}
 

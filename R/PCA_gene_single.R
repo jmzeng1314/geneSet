@@ -6,16 +6,15 @@
 #'
 #' @param prefix    The prefix for all of the output files.( we don't need it now actually,just placeholder)
 #' @param exprSet   Matrix for microarray expression values,rownames must be genes, colnames must be samples
-#' @param group_list Factors for two groups that are tested for differential expression.
 #' @param this_geneSet   A vector which contains all of the genes in this geneSet.
 #' @param n Times for random permuted or bootstraps by genes,default:1000
 #' @return The p vaule for this PCA test
 #' @export
 #' @keywords PCA
 #' @examples
-#' PCA_gene_single(exprSet=exprSet,group_list=group_list, this_geneSet=this_geneSet)
+#' PCA_gene_single(exprSet=exprSet,this_geneSet=this_geneSet)
 
-PCA_gene_single <- function(prefix='test',exprSet,group_list, this_geneSet, n=1000) {
+PCA_gene_single <- function(prefix='test',exprSet, this_geneSet, n=1000) {
  if( F ){
    library(CLL)
    data(sCLLex)

@@ -19,8 +19,8 @@ update_kegg <- function(refresh=F){
       ###kegg2name$pathway_id=as.numeric(kegg2name$pathway_id)
       rownames(kegg2name)=kegg2name$pathway_id
     }else{stop("we can not find the file:path2name_file")}
-
-    devtools::use_data(keggID2geneID_df,GeneID2kegg_list,kegg2GeneID_list, kegg2name,overwrite =T)
+    kegg2symbol_list <- lapply(kegg2GeneID_list,function(x) as.character(geneAnno(x)$symbol))
+    devtools::use_data(keggID2geneID_df,GeneID2kegg_list,kegg2GeneID_list,kegg2symbol_list, kegg2name,overwrite =T)
   }
 }
 

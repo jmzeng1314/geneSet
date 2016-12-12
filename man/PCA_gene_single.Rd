@@ -4,15 +4,12 @@
 \alias{PCA_gene_single}
 \title{Do PCA for a single geneSet based on  bootstraps by genes}
 \usage{
-PCA_gene_single(prefix = "test", exprSet, group_list, this_geneSet,
-  n = 1000)
+PCA_gene_single(prefix = "test", exprSet, this_geneSet, n = 1000)
 }
 \arguments{
 \item{prefix}{The prefix for all of the output files.( we don't need it now actually,just placeholder)}
 
 \item{exprSet}{Matrix for microarray expression values,rownames must be genes, colnames must be samples}
-
-\item{group_list}{Factors for two groups that are tested for differential expression.}
 
 \item{this_geneSet}{A vector which contains all of the genes in this geneSet.}
 
@@ -25,7 +22,7 @@ The p vaule for this PCA test
 It'll random choose the same number of gene with the size of this geneSet to extract the expression matrix and then do PCA for this small expression matrix .
 }
 \examples{
-PCA_gene_single(exprSet=exprSet,group_list=group_list, this_geneSet=this_geneSet)
+PCA_gene_single(exprSet=exprSet,this_geneSet=this_geneSet)
 }
 \keyword{PCA}
 
