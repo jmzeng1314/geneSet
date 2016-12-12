@@ -8,7 +8,10 @@ So far, we provide 3 basic statistic analysis for the expression matrix accordin
 > * plot_GSEA_single
 > * PCA_gene_single
 > * PCA_gene_multiple 
+
+
 Please follow the link below to install this package and have a fun !
+
 ### [如何安装别人开发的未发表的包](http://www.bio-info-trainee.com/2092.html)
 
 Also please feel free to contact with me if there's a bug or it's not clear to use.
@@ -46,11 +49,11 @@ logFC_cutoff  <- mean(abs(DEG$logFC)) + 2*sd(abs(DEG$logFC))
 pvalue_cutoff  <- 0.05
 DEG$symbol <- rownames(DEG)
 DEG$sigORnot <- ifelse(abs(DEG$logFC) > logFC_cutoff & DEG$P.Value <pvalue_cutoff ,
- ifelse(DEG$logFC >logFC_cutoff,'UP','DOWN'),'NOT')
- choose_geneIds <- DEG[DEG$sigORnot != 'NOT','symbol']
- backgroud_geneIds <- DEG$symbol
- hyperGTest_single(kegg2symbol_list[[1]],choose_geneIds,backgroud_geneIds)
- hyperGTest_multiple(kegg2symbol_list,choose_geneIds,backgroud_geneIds)
+                ifelse(DEG$logFC >logFC_cutoff,'UP','DOWN'),'NOT')
+choose_geneIds <- DEG[DEG$sigORnot != 'NOT','symbol']
+backgroud_geneIds <- DEG$symbol
+hyperGTest_single(kegg2symbol_list[[1]],choose_geneIds,backgroud_geneIds)
+hyperGTest_multiple(kegg2symbol_list,choose_geneIds,backgroud_geneIds)
  
 ```
 
