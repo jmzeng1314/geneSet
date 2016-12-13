@@ -5,7 +5,7 @@
 \title{Do GSEA for a single geneSet based on random permuted or bootstraps by genes}
 \usage{
 GSEA_gene_single(gene_values = rnorm(100), gene_names = 1:100,
-  this_geneSet = sample(1:100, 10), n = 1000)
+  this_geneSet = sample(1:100, 10), geneSet_name = "geneset1", n = 1000)
 }
 \arguments{
 \item{gene_values}{A vector of values for each gene,most of time it's  signal 2 noise.}
@@ -15,6 +15,8 @@ GSEA_gene_single(gene_values = rnorm(100), gene_names = 1:100,
 \item{this_geneSet}{A vector which contains all of the genes in this geneSet.}
 
 \item{n}{Times for random permuted or bootstraps by genes,default:1000}
+
+\item{this_geneSet}{The name of current geneSet,default:geneset1}
 }
 \value{
 a list contain 4 elements: ES,rand_es, p and ismem

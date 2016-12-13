@@ -5,19 +5,22 @@
 \title{draw 3 figures for the results of GSEA_gene_single function}
 \usage{
 plot_GSEA_single(GSEA_single_results, gene_values = rnorm(100),
-  prefix = "test", imageType = "png")
+  geneSet_name = "geneset1", phen1 = "case", phen2 = "control",
+  imageType = "png", multiple = T)
 }
 \arguments{
 \item{GSEA_single_results}{A list contain 4 elements: ES,rand_es, p and ismem}
 
 \item{gene_values}{A vector of values for each gene,most of time it's  signal 2 noise.}
 
-\item{prefix}{The prefix for the out images,default:test}
-
 \item{imageType}{choose png,pdf,emf,tiff,jpeg,bmp}
+
+\item{multiple}{plot 3 ugly figures or just 1(pretty),default:T}
+
+\item{this_geneSet}{The name of current geneSet,default:geneset1}
 }
 \value{
-3 figures:
+image file:
 }
 \description{
 Firstly you need to do GSEA Tests for a list of geneSets,and get the results, then just use this function to draw some pictures.

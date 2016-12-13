@@ -11,6 +11,7 @@
 #' @param gene_values  A vector of values for each gene,most of time it's  signal 2 noise.
 #' @param gene_names   A vector of names  for each gene
 #' @param this_geneSet   A vector which contains all of the genes in this geneSet.
+#' @param this_geneSet   The name of current geneSet,default:geneset1
 #' @param n Times for random permuted or bootstraps by genes,default:1000
 #' @return a list contain 4 elements: ES,rand_es, p and ismem
 #' @export
@@ -21,6 +22,7 @@
 GSEA_gene_single <- function(gene_values=rnorm(100),
                              gene_names=1:100,
                              this_geneSet=sample(1:100,10),
+                             geneSet_name='geneset1',
                              n=1000) {
   if (any(duplicated( gene_names  ))){
     stop("The gene names for genes should not be duplicated!!!")
