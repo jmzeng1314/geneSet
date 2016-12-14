@@ -54,6 +54,7 @@ choose_geneIds <- DEG[DEG$sigORnot != 'NOT','symbol']
 backgroud_geneIds <- DEG$symbol
 hyperGTest_single(kegg2symbol_list[[1]],choose_geneIds,backgroud_geneIds)
 hyperGTest_multiple(kegg2symbol_list,choose_geneIds,backgroud_geneIds)
+
  
 ```
 

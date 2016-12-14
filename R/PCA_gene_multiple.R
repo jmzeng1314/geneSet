@@ -28,7 +28,7 @@ PCA_gene_multiple <- function(prefix='test',exprSet, geneSet_list, n=1000) {
                            )
   }
   p <- unlist(lapply(geneSet_list, function(this_geneSet){
-    PCA_gene_single(exprSet=exprSet,group_list=group_list, this_geneSet=this_geneSet)
+    PCA_gene_single(exprSet=exprSet, this_geneSet=this_geneSet)
   }))
   size <- unlist(lapply(geneSet_list, function(this_geneSet){
     length(this_geneSet)
