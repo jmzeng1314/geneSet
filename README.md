@@ -30,15 +30,15 @@ exprSet = get_symbol_exprSet(sCLLex,platformDB='hgu95av2.db')
 
 ## firstly do GSEA:
 s2n <- calc_s2n(exprSet,group_list ) 
-tmp <- GSEA_gene_single(s2n,names(s2n),kegg2symbol_list[[1]],1000)
+tmp <- GSEA_gene_single(s2n,names(s2n),kegg2symbol_list[[1]],n = 100)
 ## it's too slow, I need to modify it.
-plot_GSEA_single(tmp)
+plot_GSEA_single(GSEA_single_results = tmp,gene_values = s2n,multiple = F)
 ## don't run this, I guess it will consume more than 2 hours
 GSEA_gene_multiple(s2n,names(s2n),head(kegg2symbol_list),100)
 
 ## Then do PCA:
 PCA_gene_single(exprSet=exprSet,this_geneSet=kegg2symbol_list[[1]])
-PCA_gene_multiple(exprSet=exprSet,geneSet_list=head(kegg2symbol_list))
+PCA_gene_multiple(exprSet=exprSet,geneSet_list=kegg2symbol_list)
 
 ## lastly do hyperGTest:
 design=model.matrix(~factor(sCLLex$Disease))

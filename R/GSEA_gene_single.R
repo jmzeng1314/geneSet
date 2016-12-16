@@ -35,9 +35,14 @@ GSEA_gene_single <- function(gene_values=rnorm(100),
 
   ismem<-is.element(names(gene_values),this_geneSet)
   ES<-c(0)
+  sum_geneValue_this_geneSet <- sum(abs(gene_values[ismem]))
   for (i in 1:n1) {
-    if (ismem[i]) x <- sqrt((n1-n2)/n2) else x<- -sqrt(n2/(n1-n2)) # 70 For brca
-    ES[i+1] <- ES[i]+x
+    if (ismem[i]){
+      x <- abs(gene_values[i])/sum_geneValue_this_geneSet
+    } else {
+      x<- -1/(n1-n2)
+    }
+     ES[i+1] <- ES[i]+x
   }
   ES<-ES[-1]  ## the running ES score for all of the genes, a numeric vector
 
@@ -45,12 +50,18 @@ GSEA_gene_single <- function(gene_values=rnorm(100),
   ## random permutation
   rand_es<-c()
   max.rES <- c()
+  ## TODO: don't do permutation
   for (j in 1:n) {
     #myData<-cbind(myData[,1:2],is.element(c(1:n1),sample(1:n1,n2)))
     ismem <- sample(ismem)
     rES<-c(0)
+    sum_geneValue_this_geneSet <- sum(abs(gene_values[ismem]))
     for (i in 1:n1) {
-      if (ismem[i]) x <- sqrt((n1-n2)/n2) else x<- -sqrt(n2/(n1-n2))
+      if (ismem[i]){
+        x <- abs(gene_values[i])/sum_geneValue_this_geneSet
+      } else {
+        x<- -1/(n1-n2)
+      }
       rES[i+1] <- rES[i]+x
     }
     rand_es <- rbind(rand_es,max(rES)) ## the maximal running ES score for each permutation, a numeric vector.
@@ -62,6 +73,7 @@ GSEA_gene_single <- function(gene_values=rnorm(100),
   ismem<-is.element(names(gene_values),this_geneSet)
   return(list(ES=ES,rand_es=rand_es,p=p,ismem=ismem))
 }
+
 
 
 
